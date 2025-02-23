@@ -441,5 +441,8 @@ shinyServer(function(session, input, output) {
         dd <- orderdf(dd,input$xsortcolText,input$xsortdescText)
         return(dd)
     })
+    output$myUsage <- renderUI({
+        includeHTML("https://econdataus.com/voting_area_NV24.htm")
+    })
 }
 )

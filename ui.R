@@ -62,6 +62,9 @@ shinyUI(fluidPage(
                         width = 10,
                         verbatimTextOutput("myVText")
                     )
+                ),
+                tabPanel("Usage",
+                         htmlOutput(outputId = "myUsage")
                 )
             )
         )
