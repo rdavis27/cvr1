@@ -387,6 +387,10 @@ shinyServer(function(session, input, output) {
             sbinsize <- ""
             xlab <- paste0(input$xvar," in ID order")
         }
+        else if (input$xlabel == "N"){
+            sbinsize <- ""
+            xlab <- paste0(input$xvar," Count")
+        }
         else{
             sbinsize <- ""
             xlab <- input$xvar
@@ -409,8 +413,10 @@ shinyServer(function(session, input, output) {
                 sprecinct <- paste0("Precinct ",input$precinctlo,"-",input$precincthi)
             }
         }
+        if (input$xlabel == "N") nplus <- " Count"
+        else nplus <- ""
         title <- paste0("Clark County, NV: 2024 CVR: ",input$voteType,", ",
-                        stabulator, sprecinct, sbinsize, ", order by ",input$xvar)
+                        stabulator, sprecinct, sbinsize, ", order by ",input$xvar,nplus)
         gg <- gg + ggtitle(title)
         gg <- gg + xlab(xlab) + ylab("Vote Margin (percent)")
         xclr <- unlist(strsplit(input$xcolor,","))
